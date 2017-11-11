@@ -10,6 +10,7 @@ CH_X = 0
 CH_Y = 1
 CH_Z = 2
 
+
 def analog_read(channel):
     r = spi.xfer2([0x06, channel << 6, 0])
     adc_out = ((r[1] & 0x0f) << 8) | r[2]
