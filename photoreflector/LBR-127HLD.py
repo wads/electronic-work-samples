@@ -1,6 +1,8 @@
 import spidev
 import time
 
+CH = 0
+
 
 def analog_read(channel):
     r = spi.xfer2([0x06, channel << 6, 0])
@@ -10,7 +12,8 @@ def analog_read(channel):
 
 try:
     while True:
-        print('value')
+        val = analog_read(CH)
+        print(val)
         time.sleep(1)
 except Exception as e:
     print "%s end\n" % e.args
