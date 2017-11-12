@@ -11,6 +11,9 @@ def analog_read(channel):
 
 
 try:
+    spi = spidev.SpiDev()
+    spi.open(0, 0)
+
     while True:
         val = analog_read(CH)
         print(val)
